@@ -1,6 +1,5 @@
 package br.com.DuplaPk.DuplaPK;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import br.com.DuplaPk.DuplaPK.entities.GarantiasPK;
 import br.com.DuplaPk.DuplaPK.entities.TipoGarantias;
 import br.com.DuplaPk.DuplaPK.entities.VersionPK;
 import br.com.DuplaPk.DuplaPK.entities.VersionamentoAPI;
@@ -39,13 +39,16 @@ public class TestaInsercao implements CommandLineRunner {
 		v.setMesReferencia("08");
 		v.setPks(pk);
 		
-		t.setNomeGarantia("Capital de Giro");
-		t.setTipoGarantia(1L);
-		t.setVersionamento(v);
-		
-		//Ordem correta
 		repository.save(v);
+		
+		//t.setTipoGarantia(1L);
+		t.setNomeGarantia("Capital de Giro");
+		t.setPks(new GarantiasPK(v.getPks(), 1L));
+		//t.setVersao(v);
+		
+		//Ordem correta		
 		rTipo.save(t);
+		
 		
 	}
 

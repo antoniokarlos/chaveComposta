@@ -31,6 +31,15 @@ public class VersionPK implements Serializable {
 		this.codVersionamento = codVersionamento;
 	}
 	
+	public VersionPK() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public VersionPK(Date data, String codigo) {
+		this.dataVersao = data;
+		this.codVersionamento = codigo;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
