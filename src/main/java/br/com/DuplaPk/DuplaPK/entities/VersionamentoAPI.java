@@ -1,9 +1,11 @@
 package br.com.DuplaPk.DuplaPK.entities;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,7 +17,7 @@ public class VersionamentoAPI {
 	private String mesReferencia;
 	
 	@OneToMany(mappedBy="versao")
-	private Collection<TipoGarantias> garantias;
+	private List<TipoGarantias> garantias;
 
 	public VersionPK getPks() {
 		return pks;
@@ -36,4 +38,14 @@ public class VersionamentoAPI {
 	public VersionamentoAPI() {
 		
 	}
+
+	public List<TipoGarantias> getGarantias() {
+		return garantias;
+	}
+
+	public void setGarantias(List<TipoGarantias> garantias) {
+		this.garantias = garantias;
+	}
+	
+	
 }
